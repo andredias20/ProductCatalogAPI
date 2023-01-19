@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ProductCatalogAPI.Database;
+using ProductCatalogAPI.Database.Context;
 
 namespace ProductCatalogAPI
 {
@@ -16,7 +16,7 @@ namespace ProductCatalogAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<ProductContext>(opt =>
+            services.AddDbContext<Context>(opt =>
               opt.UseSqlServer(Configuration.GetConnectionString("urlConnection")));
 
             services.AddEndpointsApiExplorer();
